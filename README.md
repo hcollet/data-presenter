@@ -1,8 +1,8 @@
 # data-presenter
 
-**data-presenter** tries to bring together the strengths of [reveal.js][reveal]
+**data-presenter** brings together the strengths of [reveal.js][reveal]
 and [d3.js][d3] libraries to produce nice-looking presentations that include
-interactive data visualization
+interactive data visualization.
 
 [reveal]: hakimel/reveal.js
 [d3]: mbostock/d3
