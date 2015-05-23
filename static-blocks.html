@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Static blocks to build a reveal.js presentation</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="reveal.js/css/reveal.css">
+		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="reveal.js/lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+		<div class="reveal">
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<!-- Title slide -->
+				<section id="start">
+					<h1>Static blocks</h1>
+					<p>
+						Use these static blocks to build your own presentation.<br>
+						Each static block is shown as a separate slide, sometimes with variants in vertical slides.
+					</p>
+					<p>
+						<small>Created by <a href="http://hcollet.github.io/data-presenter/">Tinh-Hai Collet</a>,
+							adapted from <a href="http://lab.hakim.se/reveal-js/#/">Reveal.js demo</a></small>
+					</p>
+				</section>
+
+				<!-- Titles + text -->
+				<section id="titles">
+					<h1>Title h1</h1>
+					<h2>Title h2</h2>
+					<h3>Title h3</h3>
+					<p>Hello world</p>
+				</section>
+
+				<!-- Title + text in multiple vertical slides -->
+				<section id="vertical">
+					<section>
+						<h2>Vertical slide 1</h2>
+						<p>Text</p>
+						<p><small>Press on up/down arrow keys to navigate</small></p>
+					</section>
+					<section>
+						<h2>Vertical slide 2</h2>
+						<p>Text 2</p>
+					</section>
+					<section>
+						<h2>Vertical slide 3</h2>
+						<p>Text 3</p>
+					</section>
+				</section>
+
+				<!-- Title + text in fragments -->
+				<section id="fragments">
+					<!-- Text in simple fragments -->
+					<section>
+						<h2>Text in fragments 1</h2>
+						<p>
+							Every element with the class <code>fragment</code> will be
+							stepped through before moving on to the next slide.
+						</p>
+						<p class="fragment">... now</p>
+						<p class="fragment">... then</p>
+						<p class="fragment">... finally</p>
+
+						<!-- Nested fragments and it works not only with paragraphs -->
+						<p class="fragment">
+							Fragments can be nested and it works within a paragraph
+							using the span block:
+							<span class="fragment">1</span>
+							<span class="fragment">2</span>
+							<span class="fragment">3</span>
+						</p>
+					</section>
+
+					<!-- Text in fragments: specify order -->
+					<section>
+						<h2>Text in fragments 2</h2>
+						<p>
+							The order of text fragments can be specified with the attribute
+							<code>data-fragment-index</code>.
+						</p>
+						<p class="fragment" data-fragment-index="3">Last</p>
+				   	<p class="fragment" data-fragment-index="1">First</p>
+				   	<p class="fragment" data-fragment-index="2">Second</p>
+					</section>
+
+					<!-- Text in fragments: visual styles -->
+					<section>
+						<h2>Text in fragments 3</h2>
+						<p>
+							By default fragments start invisible and fade in, but this
+							visual style can be specified with other classes:
+						</p>
+						<small>
+							<p class="fragment grow">grow</p>
+						   <p class="fragment shrink">shrink</p>
+						   <p class="fragment fade-out">fade-out</p>
+						   <p class="fragment current-visible">visible only once</p>
+						   <p class="fragment highlight-current-blue">blue only once</p>
+						   <p class="fragment highlight-red">highlight-red</p>
+						   <p class="fragment highlight-green">highlight-green</p>
+						   <p class="fragment highlight-blue">highlight-blue</p>
+						</small>
+					</section>
+
+					<!-- Text in fragments: chained visual styles -->
+					<section>
+						<h2>Text in fragments 4</h2>
+						<p>
+							The visual style of text fragments can be chained by nesting.
+						</p>
+						<small>
+							<span class="fragment fade-in">
+								<span class="fragment highlight-blue">
+									<span class="fragment fade-out">
+										I'll fade in, then highlight blue, and finally fade-out.
+									</span>
+								</span>
+							</span>
+						</small>
+					</section>
+				</section>
+
+				<!-- -->
+				<section id="other">
+					<h2>TO DO</h2>
+					<p>lists, notes, tables, simple css, config </p>
+				</section>
+
+				<!-- Slide in markdown format -->
+				<section id="markdown">
+					<!-- Inline markdown text -->
+					<section data-markdown>
+						<script type="text/template">
+## Inline markdown text
+
+Slides can be written in [GitHub Flavoured Markdown](https://help.github.com/articles/github-flavored-markdown).
+
+Markdown text is *sensitive* to indentation and line breaks.
+   					</script>
+					</section>
+					<!-- External file in markdown format -->
+					<section data-markdown="static-blocks.md"
+					         data-separator="^\n\n\n"
+					         data-separator-vertical="^\n\n"
+					         data-separator-notes="^Note:"
+					         data-charset="iso-8859-15">
+					</section>
+				</section>
+
+				<!-- Slide containing code with syntax highlighting -->
+				<section id="code">
+					<h2>Code with syntax highlighting</h2>
+					<p>The code snippet below can enable the slide number</p>
+   				<pre><code data-trim>
+// Shows the slide number using default formatting
+Reveal.configure({ slideNumber: true });
+
+// Slide number formatting can be configured using these variables:
+//  h: current slide's horizontal index
+//  v: current slide's vertical index
+//  c: current slide index (flattened)
+//  t: total number of slides (flattened)
+Reveal.configure({ slideNumber: 'c / t' });
+   				</code></pre>
+				</section>
+
+				<!-- Transitions between slides -->
+				<section id="transitions">
+					<h2>Transition styles</h2>
+					<p>
+						You can select from different transitions, either for the
+						entire presentation or for a specific slide, like here:<br>
+						<a href="?transition=none#/transitions">None</a> -
+						<a href="?transition=fade#/transitions">Fade</a> -
+						<a href="?transition=slide#/transitions">Slide (default)</a> -
+						<a href="?transition=convex#/transitions">Convex</a> -
+						<a href="?transition=concave#/transitions">Concave</a> -
+						<a href="?transition=zoom#/transitions">Zoom</a>
+					</p>
+				</section>
+
+				<!-- Slide backgrounds -->
+				<section id="backgrounds">
+					<section data-background="#aaaaaa">
+						<h2>Slide Background</h2>
+						<p>
+							Set <code>data-background="#aaaaaa"</code> on a slide to
+							change the background color. This can be done for the entire
+							presentation too. All CSS color formats are supported.
+						</p>
+					</section>
+					<section data-background="http://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" data-background-size="383px">
+						<h2>Image Background</h2>
+						<p>You can specify an image as the slide background.</p>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section data-background="http://git-scm.com/images/logos/downloads/Git-Icon-Black.png" data-background-repeat="repeat" data-background-size="383px">
+						<h2>Tiled Background</h2>
+						<p>The image can be tiled in the slide background.</p>
+						<pre><code>
+&lt;section data-background="image.png"
+	data-background-repeat="repeat"
+	data-background-size="100px"&gt;
+						</code></pre>
+					</section>
+					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Background</h2>
+							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+				</section>
+
+				<!-- Presentation themes -->
+				<section id="themes">
+					<h2>Themes</h2>
+					<p>
+						reveal.js comes with a few built-in themes that can be set for
+						the entire presentation, try them here:<br>
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/black.css'); return false;">Black (default)</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/white.css'); return false;">White</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/league.css'); return false;">League</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/sky.css'); return false;">Sky</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/beige.css'); return false;">Beige</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/simple.css'); return false;">Simple</a> <br>
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/serif.css'); return false;">Serif</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/blood.css'); return false;">Blood</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/night.css'); return false;">Night</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/moon.css'); return false;">Moon</a> -
+						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/solarized.css'); return false;">Solarized</a>
+					</p>
+				</section>
+
+				<!-- Navigation and keyboard -->
+				<section id="navigation">
+					<h2>Navigation and keyboard</h2>
+					<ul>
+						<li>B: black screen</li>
+						<li>Esc/O: slide overview</li>
+						<li>Alt+click: zoom in, repeat to zoom out</li>
+					</ul>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="reveal.js/lib/js/head.min.js"></script>
+		<script src="reveal.js/js/reveal.js"></script>
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+	</body>
+</html>
