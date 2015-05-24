@@ -10,7 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="reveal.js/css/reveal.css">
-		<link rel="stylesheet" href="reveal.js/css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="reveal.js/css/theme/moon.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="reveal.js/lib/css/zenburn.css">
@@ -300,7 +300,7 @@ Reveal.configure({ slideNumber: 'c / t' });
 					<p>
 						reveal.js comes with a few built-in themes that can be set for
 						the entire presentation, try them here:<br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
+						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo -->
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/black.css'); return false;">Black (default)</a> -
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/white.css'); return false;">White</a> -
 						<a href="#" onclick="document.getElementById('theme').setAttribute('href','reveal.js/css/theme/league.css'); return false;">League</a> -
@@ -327,16 +327,14 @@ Reveal.configure({ slideNumber: 'c / t' });
 					<p><small>
 						To enable lazy loading change the <code>src</code> attributes to
 						<code>data-src</code> in <code>img</code>, <code>video</code>,
-						<code>audio</code> and <code>iframe</code> elements.
+						<code>audio</code> and <code>iframe</code> elements:<br>
+						Example: <code>&lt;img src="image.png"&gt;</code> replaced by
+						<code>&lt;img data-src="image.png"&gt;</code>
+					</small></p>
+					<p><small>
 						Lazy loaded iframes will also unload when the containing slide
 						is no longer visible.
 					</small></p>
-					<pre><code data-trim>
-To enable lazy loading by reveal.js type
-<img data-src="image.png">
-instead of
-<img src="image.png">
-   				</code></pre>
 				</section>
 
 				<!-- Navigation and keyboard -->
@@ -513,6 +511,10 @@ Reveal.initialize({
 
 });
 						</code></pre>
+						<p>
+							<a href="https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware">Plugins and other tools</a>
+							to customize reveal.js behaviour.
+						</p>
 					</small>
 				</section>
 
@@ -556,7 +558,8 @@ Reveal.initialize({
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 				transitionSpeed: 'fast', // default/fast/slow
 
-				// Optional reveal.js plugins
+				// Optional reveal.js plugins, see more on
+				// https://github.com/hakimel/reveal.js/wiki/Plugins,-Tools-and-Hardware
 				dependencies: [
 					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
 					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
@@ -572,13 +575,7 @@ Reveal.initialize({
 					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
 
 					// Speaker notes
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
-
-					// Remote control your reveal.js presentation using a touch device
-		      	{ src: 'reveal.js/plugin/remotes/remotes.js', async: true },
-
-		      	// MathJax
-		      	{ src: 'reveal.js/plugin/math/math.js', async: true }
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
 				]
 			});
 
