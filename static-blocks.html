@@ -55,26 +55,26 @@
 				</section>
 
 				<!-- Title + text in multiple vertical slides -->
-				<section id="vertical">
-					<section>
+				<section>
+					<section id="vertical1">
 						<h2>Vertical slide 1</h2>
 						<p>Text</p>
 						<p><small>Press on up/down arrow keys to navigate</small></p>
 					</section>
-					<section>
+					<section id="vertical2">
 						<h2>Vertical slide 2</h2>
 						<p>Text 2</p>
 					</section>
-					<section>
+					<section id="vertical3">
 						<h2>Vertical slide 3</h2>
 						<p>Text 3</p>
 					</section>
 				</section>
 
 				<!-- Title + text in fragments -->
-				<section id="fragments">
+				<section>
 					<!-- Text in simple fragments -->
-					<section>
+					<section id="fragments1">
 						<h2>Text in fragments 1</h2>
 						<p>
 							Every element with the class <code>fragment</code> will be
@@ -95,7 +95,7 @@
 					</section>
 
 					<!-- Text in fragments: specify order -->
-					<section>
+					<section id="fragments2">
 						<h2>Text in fragments 2</h2>
 						<p>
 							The order of text fragments can be specified with the attribute
@@ -107,7 +107,7 @@
 					</section>
 
 					<!-- Text in fragments: visual styles -->
-					<section>
+					<section id="fragments3">
 						<h2>Text in fragments 3</h2>
 						<p>
 							By default fragments start invisible and fade in, but this
@@ -126,7 +126,7 @@
 					</section>
 
 					<!-- Text in fragments: chained visual styles -->
-					<section>
+					<section id="fragments4">
 						<h2>Text in fragments 4</h2>
 						<p>
 							The visual style of text fragments can be chained by nesting.
@@ -143,26 +143,86 @@
 					</section>
 				</section>
 
-				<!-- -->
-				<section id="other">
-					<h2>TO DO</h2>
-					<p>lists, notes, tables, simple css, config </p>
+				<!-- Bullet points / Unordered list -->
+				<section id="bullets">
+					<h2>Bullet points / Unordered list</h2>
+					<ul>
+						<li>Bullet 1</li>
+						<li>Bullet 2</li>
+						<li>Bullet 3</li>
+						<li class="fragment">Bullet 4, appears later (fragment)</li>
+					</ul>
+				</section>
+
+				<!-- Ordered list -->
+				<section id="list">
+					<h2>Ordered list</h2>
+					<ol>
+						<li>One is smaller than...</li>
+						<li class="fragment">Two is smaller than...</li>
+						<li class="fragment">Three!</li>
+					</ol>
+				</section>
+
+				<!-- A HTML table -->
+				<section id="table">
+					<h2>Table</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Item</th>
+								<th>Value</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Apples</td>
+								<td>$1</td>
+								<td>7</td>
+							<tr>
+							<tr>
+								<td>Lemonade</td>
+								<td>$2</td>
+								<td>18</td>
+							<tr>
+							<tr class="fragment">
+								<td>Bread</td>
+								<td>$3</td>
+								<td>2</td>
+							<tr>
+						</tbody>
+					</table>
+				</section>
+
+				<!-- Links within the presentation -->
+				<section id="links">
+					<h2>Links</h2>
+					<p>Links can target</p>
+					<ul>
+						<li><a href="http://hcollet.github.io/data-presenter/">Web link</a> (usual HTML)</li>
+						<li><a href="#/2/3">Slide</a> by number position (syntax <code>#/x/y</code>)</li>
+						<li><a href="#list">Slide</a> by id (syntax <code>#id</code>)</li>
+					</ul>
 				</section>
 
 				<!-- Slide in markdown format -->
-				<section id="markdown">
+				<section>
 					<!-- Inline markdown text -->
-					<section data-markdown>
+					<section id="markdown1" data-markdown>
 						<script type="text/template">
 ## Inline markdown text
 
 Slides can be written in [GitHub Flavoured Markdown](https://help.github.com/articles/github-flavored-markdown).
 
 Markdown text is *sensitive* to indentation and line breaks.
+
+Note: This is a note in the inline markdown format.
    					</script>
 					</section>
 					<!-- External file in markdown format -->
-					<section data-markdown="static-blocks.md"
+					<section id="markdown2"
+								data-markdown="static-blocks.md"
 					         data-separator="^\n\n\n"
 					         data-separator-vertical="^\n\n"
 					         data-separator-notes="^Note:"
@@ -187,6 +247,38 @@ Reveal.configure({ slideNumber: 'c / t' });
    				</code></pre>
 				</section>
 
+				<!-- Slide backgrounds -->
+				<section>
+					<section id="background1" data-background="#aaaaaa">
+						<h2>Slide Background</h2>
+						<p>
+							Set <code>data-background="#aaaaaa"</code> on a slide to
+							change the background color. This can be done for the entire
+							presentation too. All CSS color formats are supported.
+						</p>
+					</section>
+					<section id="background2" data-background="http://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" data-background-size="383px">
+						<h2>Image Background</h2>
+						<p>You can specify an image as the slide background.</p>
+						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
+					</section>
+					<section id="background3" data-background="http://git-scm.com/images/logos/downloads/Git-Icon-Black.png" data-background-repeat="repeat" data-background-size="383px">
+						<h2>Tiled Background</h2>
+						<p>The image can be tiled in the slide background.</p>
+						<pre><code>
+&lt;section data-background="image.png"
+	data-background-repeat="repeat"
+	data-background-size="100px"&gt;
+						</code></pre>
+					</section>
+					<section id="background4" data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
+						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
+							<h2>Video Background</h2>
+							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
+						</div>
+					</section>
+				</section>
+
 				<!-- Transitions between slides -->
 				<section id="transitions">
 					<h2>Transition styles</h2>
@@ -200,38 +292,6 @@ Reveal.configure({ slideNumber: 'c / t' });
 						<a href="?transition=concave#/transitions">Concave</a> -
 						<a href="?transition=zoom#/transitions">Zoom</a>
 					</p>
-				</section>
-
-				<!-- Slide backgrounds -->
-				<section id="backgrounds">
-					<section data-background="#aaaaaa">
-						<h2>Slide Background</h2>
-						<p>
-							Set <code>data-background="#aaaaaa"</code> on a slide to
-							change the background color. This can be done for the entire
-							presentation too. All CSS color formats are supported.
-						</p>
-					</section>
-					<section data-background="http://git-scm.com/images/logos/downloads/Git-Icon-1788C.png" data-background-size="383px">
-						<h2>Image Background</h2>
-						<p>You can specify an image as the slide background.</p>
-						<pre><code>&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="http://git-scm.com/images/logos/downloads/Git-Icon-Black.png" data-background-repeat="repeat" data-background-size="383px">
-						<h2>Tiled Background</h2>
-						<p>The image can be tiled in the slide background.</p>
-						<pre><code>
-&lt;section data-background="image.png"
-	data-background-repeat="repeat"
-	data-background-size="100px"&gt;
-						</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Background</h2>
-							<pre><code style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
 				</section>
 
 				<!-- Presentation themes -->
@@ -255,14 +315,228 @@ Reveal.configure({ slideNumber: 'c / t' });
 					</p>
 				</section>
 
+				<!-- Lazy loading -->
+				<section id="lazy-loading">
+					<h2>Lazy loading</h2>
+					<p><small>
+						When a presentation contains a lot of media and <code>iframe</code>
+						content, lazy loading of external files will happen only for the
+						few slides nearest the current slide. The number of slides to
+						be codeloaded is determined by the <code>viewDistance</code> option.
+					</small></p>
+					<p><small>
+						To enable lazy loading change the <code>src</code> attributes to
+						<code>data-src</code> in <code>img</code>, <code>video</code>,
+						<code>audio</code> and <code>iframe</code> elements.
+						Lazy loaded iframes will also unload when the containing slide
+						is no longer visible.
+					</small></p>
+					<pre><code data-trim>
+To enable lazy loading by reveal.js type
+<img data-src="image.png">
+instead of
+<img src="image.png">
+   				</code></pre>
+				</section>
+
 				<!-- Navigation and keyboard -->
 				<section id="navigation">
 					<h2>Navigation and keyboard</h2>
-					<ul>
-						<li>B: black screen</li>
-						<li>Esc/O: slide overview</li>
-						<li>Alt+click: zoom in, repeat to zoom out</li>
-					</ul>
+					<table>
+						<thead>
+							<tr>
+								<th>Key</th>
+								<th>Function</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>B, .</td>
+								<td>Black screen</td>
+							<tr>
+							<tr>
+								<td>F</td>
+								<td>Full screen</td>
+							<tr>
+							<tr>
+								<td>S</td>
+								<td>Speaker window<br>Shows upcoming slide + notes</td>
+							<tr>
+							<tr>
+								<td>Esc/O</td>
+								<td>Slide overview</td>
+							<tr>
+							<tr>
+								<td>Alt+click</td>
+								<td>Zoom in, repeat to zoom out</td>
+							<tr>
+							<tr>
+								<td>?</td>
+								<td>Help screen</td>
+							<tr>
+						</tbody>
+					</table>
+				</section>
+
+				<!-- Notes -->
+				<section id="notes">
+					<h2>Notes</h2>
+					<p>
+						Slides can have notes<br>
+						Only visible in the Speaker window (press S)<br><br>
+						Works in the <a href="#markdown1">markdown format</a> too
+					</p>
+					<aside class="notes">
+			        Oh hey, these are some notes. They are hidden from your presentation but are visible in the speaker window, just like here.
+			   	</aside>
+
+				</section>
+
+				<!-- Configuration -->
+				<section id="config">
+					<h2>Configuration - a selection</h2>
+					<small>
+						<p>
+							All reveal.js parameters have a default value and can be
+							changed during runtime<br>
+							Javascript code at the bottom of the source file:
+							<a href="https://github.com/hakimel/reveal.js#configuration">more info</a>
+						</p>
+						<pre><code>
+// Full list of configuration options and their default value from:
+// https://github.com/hakimel/reveal.js#configuration
+
+Reveal.initialize({
+
+	// The "normal" size of the presentation, aspect ratio will be preserved
+	// when the presentation is scaled to fit different resolutions. Can be
+	// specified using percentage units.
+	width: 960,
+	height: 700,
+
+	// Factor of the display size that should remain empty around the content
+	margin: 0.1,
+
+	// Bounds for smallest/largest possible scale to apply to content
+	minScale: 0.2,
+	maxScale: 1.5,
+
+	// Display controls in the bottom right corner
+	controls: true,
+
+	// Display a presentation progress bar
+	progress: true,
+
+	// Display the page number of the current slide
+	//  true: display with default formatting
+	slideNumber: false,
+
+	// Slide number formatting can be configured using these variables:
+	//  h: current slide's horizontal index
+	//  v: current slide's vertical index
+	//  c: current slide index (flattened)
+	//  t: total number of slides (flattened)
+	slideNumber: 'c / t',
+
+	// Push each slide change to the browser history
+	history: false,
+
+	// Enable keyboard shortcuts for navigation
+	keyboard: true,
+
+	// Enable the slide overview mode
+	overview: true,
+
+	// Vertical centering of slides
+	center: true,
+
+	// Enables touch navigation on devices with touch input
+	touch: true,
+
+	// Loop the presentation
+	loop: false,
+
+	// Change the presentation direction to be RTL
+	rtl: false,
+
+	// Turns fragments on and off globally
+	fragments: true,
+
+	// Flags if the presentation is running in an embedded mode,
+	// i.e. contained within a limited portion of the screen
+	embedded: false,
+
+	// Flags if we should show a help overlay when the questionmark
+	// key is pressed
+	help: true,
+
+	// Number of milliseconds between automatically proceeding to the
+	// next slide, disabled when set to 0, this value can be overwritten
+	// by using a data-autoslide attribute on your slides
+	autoSlide: 0,
+
+	// Stop auto-sliding after user input
+	autoSlideStoppable: true,
+
+	// Enable slide navigation via mouse wheel
+	mouseWheel: false,
+
+	// Hides the address bar on mobile devices
+	hideAddressBar: true,
+
+	// Opens links in an iframe preview overlay
+	previewLinks: false,
+
+	// Transition style
+	transition: 'default', // none/fade/slide/convex/concave/zoom
+
+	// Transition speed
+	transitionSpeed: 'default', // default/fast/slow
+
+	// Transition style for full page slide backgrounds
+	backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+	// Number of slides away from the current that are visible
+	// and that will be preloaded (see Lazy loading slide)
+	viewDistance: 3,
+
+	// Parallax background image
+	parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+	// Parallax background size
+	parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+
+	// Amount to move parallax background (horizontal and vertical) on slide change
+	// Number, e.g. 100
+	parallaxBackgroundHorizontal: '',
+	parallaxBackgroundVertical: ''
+
+});
+						</code></pre>
+					</small>
+				</section>
+
+				<!-- Print / export to PDF -->
+				<section id="print">
+					<h2>Print / export to PDF</h2>
+					<p>
+						<a href="?print-pdf">Add query-string '?print-pdf'</a> to URL<br>
+						Print / export to PDF (ctrl-P / cmd-P)<br><br>
+						<a href="https://github.com/hakimel/reveal.js#pdf-export">More info</a><br>
+						Works in Google Chrome, seems ok in Safari...
+					</p>
+				</section>
+
+				<!-- End -->
+				<section id="end">
+					<h2>Your turn</h2>
+					<p>
+						Jump in!<br>
+						Copy this file<br>
+						Edit and combine slides<br>
+						Share it<br><br>
+						Look at the <a href="http://hcollet.github.io/data-presenter/">other building blocks</a><br>
+					</p>
 				</section>
 
 			</div>
@@ -271,28 +545,154 @@ Reveal.configure({ slideNumber: 'c / t' });
 		<script src="reveal.js/lib/js/head.min.js"></script>
 		<script src="reveal.js/js/reveal.js"></script>
 		<script>
-
-			// Full list of configuration options available at:
-			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				// Full list of configuration options below
 				controls: true,
 				progress: true,
-				history: true,
-				center: true,
-
+				slideNumber: 'c / t',
+				history: false,
+				hideAddressBar: true,
+				center: false,
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				transitionSpeed: 'fast', // default/fast/slow
 
 				// Optional reveal.js plugins
 				dependencies: [
+					// Cross-browser shim that fully implements classList - https://github.com/eligrey/classList.js/
 					{ src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+
+					// Interpret Markdown in <section> elements
 					{ src: 'reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+
+					// Syntax highlight for <code> elements
 					{ src: 'reveal.js/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+
+					// Zoom in and out with Alt+click
 					{ src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
-					{ src: 'reveal.js/plugin/notes/notes.js', async: true }
+
+					// Speaker notes
+					{ src: 'reveal.js/plugin/notes/notes.js', async: true },
+
+					// Remote control your reveal.js presentation using a touch device
+		      	{ src: 'reveal.js/plugin/remotes/remotes.js', async: true },
+
+		      	// MathJax
+		      	{ src: 'reveal.js/plugin/math/math.js', async: true }
 				]
 			});
 
+/*
+			// Full list of configuration options and their default value from:
+			// https://github.com/hakimel/reveal.js#configuration
+
+			Reveal.initialize({
+
+				// The "normal" size of the presentation, aspect ratio will be preserved
+	   		// when the presentation is scaled to fit different resolutions. Can be
+	   		// specified using percentage units.
+				width: 960,
+				height: 700,
+
+				// Factor of the display size that should remain empty around the content
+				margin: 0.1,
+
+				// Bounds for smallest/largest possible scale to apply to content
+				minScale: 0.2,
+				maxScale: 1.5,
+
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// Display the page number of the current slide
+				//  true: display with default formatting
+				slideNumber: false,
+
+				// Slide number formatting can be configured using these variables:
+				//  h: current slide's horizontal index
+				//  v: current slide's vertical index
+				//  c: current slide index (flattened)
+				//  t: total number of slides (flattened)
+				slideNumber: 'c / t',
+
+				// Push each slide change to the browser history
+				history: false,
+
+				// Enable keyboard shortcuts for navigation
+				keyboard: true,
+
+				// Enable the slide overview mode
+				overview: true,
+
+				// Vertical centering of slides
+				center: true,
+
+				// Enables touch navigation on devices with touch input
+				touch: true,
+
+				// Loop the presentation
+				loop: false,
+
+				// Change the presentation direction to be RTL
+				rtl: false,
+
+				// Turns fragments on and off globally
+				fragments: true,
+
+				// Flags if the presentation is running in an embedded mode,
+				// i.e. contained within a limited portion of the screen
+				embedded: false,
+
+				// Flags if we should show a help overlay when the questionmark
+				// key is pressed
+				help: true,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 0,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: true,
+
+				// Enable slide navigation via mouse wheel
+				mouseWheel: false,
+
+				// Hides the address bar on mobile devices
+				hideAddressBar: true,
+
+				// Opens links in an iframe preview overlay
+				previewLinks: false,
+
+				// Transition style
+				transition: 'default', // none/fade/slide/convex/concave/zoom
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+
+				// Number of slides away from the current that are visible
+				// and that will be preloaded (see Lazy loading slide)
+				viewDistance: 3,
+
+				// Parallax background image
+				parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+				// Parallax background size
+				parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+
+				// Amount to move parallax background (horizontal and vertical) on slide change
+				// Number, e.g. 100
+				parallaxBackgroundHorizontal: '',
+				parallaxBackgroundVertical: ''
+
+			});
+*/
 		</script>
 	</body>
 </html>
